@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Security.Principal;
 using System.Net;
+using System.DirectoryServices.AccountManagement;
 
 namespace TimerApp
 {
@@ -23,15 +24,19 @@ namespace TimerApp
     /// </summary>
     public partial class TimerWindow : Window
     {
+        private UserPrincipal userPrincipal;
+        private PrincipalContext principalContext;
         private int second, sectorNo;
         private Dictionary<string, string> sectorList = new Dictionary<string, string>();
         private DateTime dateTime;
+        private DateTime? loggedDateTime;
         public TimerWindow()
         {
             InitializeComponent();
             sectorList.Clear();
             second = 1;
             sectorNo = 0;
+            //loggedDateTime = GetLastLoginToMachine();
             dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -41,6 +46,7 @@ namespace TimerApp
 
         public void TimerTick(object sender, EventArgs e)
         {
+            //MessageBox.Show(loggedDateTime.ToString());
             timerText.Text = GetTimerFormat(dateTime);
             if (timerText.Text == "02:00:00")
             {
@@ -53,11 +59,21 @@ namespace TimerApp
         private string GetTimerFormat(DateTime dateTime)
         {
             dateTime = dateTime.AddSeconds(second++);
-            string calculatedTime = String.Format("{0}:{1}:{2}", dateTime.Hour.ToString("00"), dateTime.Minute.ToString("00"), dateTime.Second.ToString("00"));
-            return calculatedTime;
+            return dateTime.ToString("HH:mm:ss");
         }
-     
+
+        //public static DateTime? GetLastLoginToMachine()
+        //{
+        //    string username = WindowsIdentity.GetCurrent().Name.Split(@"\")[0];
+        //    string machineName = WindowsIdentity.GetCurrent().Name.Split(@"\")[1];
+        //    PrincipalContext principalContext = new PrincipalContext(ContextType.Machine, username);
+        //    UserPrincipal userPrincipal = UserPrincipal.FindByIdentity(principalContext, machineName);
+        //    return userPrincipal.LastLogon;
+        //}
+
+
+
     }
 
-   
+
 }
