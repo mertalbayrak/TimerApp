@@ -32,21 +32,20 @@ namespace TimerApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show(usernameBox.Text);
-            //MessageBox.Show(passwordBox.Password);
-            MessageBox.Show(Environment.OSVersion.Platform.ToString());
-            if (usernameBox.Text == WindowsIdentity.GetCurrent().Name)
-            {
-                //MessageBox.Show("Gel bakayım içeri => " + WindowsIdentity.GetCurrent().Name);
-                passwordDirectory = new PasswordDirectory(usernameBox.Text);
-                timerWindow = new TimerWindow();
-                timerWindow.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Yasak giremezsin");
-            }
+            timerWindow = new TimerWindow();
+            timerWindow.Show();
+            this.Close();
+            //if (usernameBox.Text == WindowsIdentity.GetCurrent().Name)
+            //{
+            //    passwordDirectory = new PasswordDirectory(usernameBox.Text);
+            //    timerWindow = new TimerWindow();
+            //    timerWindow.Show();
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Yasak giremezsin");
+            //}
         }
 
      

@@ -9,10 +9,24 @@
         Title="Timer App" Height="450" Width="500"
         WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
     <Grid>
-        <TextBlock x:Name="timerText"
+        <Grid>
+            <Border Grid.RowSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#475058" Offset="0.2"></GradientStop>
+                        <GradientStop Color="#65d7de" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <StackPanel>
+                <TextBlock x:Name="timerText"
                    FontSize="35"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Center">
+                </TextBlock>
+            </StackPanel>
+            
+        </Grid>
     </Grid>
 
 </Window>
