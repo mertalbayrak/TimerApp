@@ -12,7 +12,7 @@ namespace TimerApp
         public MainWindow()
         {
             InitializeComponent();
-            startText.Text += "Merhaba, " + WindowsIdentity.GetCurrent().Name + ". Çalışmaya hazır mısın?";
+            startText.Text += "Merhaba, "; //+ WindowsIdentity.GetCurrent().Name;
             usernameText.Text = WindowsIdentity.GetCurrent().Name;
         }
 

@@ -6,31 +6,27 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:local="clr-namespace:TimerApp"
         mc:Ignorable="d"
-        Title="Timer App" Height="450" Width="500"
-        WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
-    <Grid>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Border Grid.RowSpan="2">
-                <Border.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#475058" Offset="0.2"></GradientStop>
-                        <GradientStop Color="#65d7de" Offset="1"></GradientStop>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
+        Title="Timer App" Height="500" Width="500"
+        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+    
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="300">
+
+        </WindowChrome>
+    </WindowChrome.WindowChrome>
+
+    <Border CornerRadius="360" BorderBrush="#FFDF66" BorderThickness="5" Background="#2D2D30">
+        <StackPanel WindowChrome.IsHitTestVisibleInChrome="True">
+
+            <Label Foreground="#FFDF66" Margin="0,60,0,0" FontSize="25" FontFamily="Stormfaze" HorizontalAlignment="Center">CORONA SAYAR</Label>
+
             <StackPanel>
-                <Image Source="images\softtech_logo_512x512.png" Width="100" Height="100" HorizontalAlignment="Left"/>
-                <TextBlock Name="startText" TextWrapping="WrapWithOverflow" FontWeight="Light" FontFamily="helvetica" FontSize="22" Foreground="White" HorizontalAlignment="Center"/>
+
+                <TextBlock Name="startText" Margin="0,40,0,0" Foreground="#FFDF66" TextWrapping="WrapWithOverflow" FontWeight="Light" FontFamily="Stormfaze" FontSize="22" HorizontalAlignment="Center"/>
 
             </StackPanel>
-
-            <StackPanel Grid.Row="1">
-                <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="usernameText"
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="usernameText"
                          FontFamily="Helvetica" 
                          FontWeight="Light"  
                          FontSize="20" 
@@ -42,53 +38,22 @@
                          HorizontalContentAlignment="Left"
                          Opacity="0.5"
                          Height="25"
-                         Margin="125,0,0,0"
+                         Margin="125,50,0,0"
                          />
-                    <iconPacks:PackIconMaterial Kind="Account"
+                <iconPacks:PackIconMaterial Kind="Account"
                                                   VerticalAlignment="Center"
                                                   HorizontalAlignment="Center"
                                                   Foreground="White"/>
-                </StackPanel>
-                <Border Width="250"
-                    Height="2"
-                    Background="White"/>
+            </StackPanel>
 
-                <!--<StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                    <PasswordBox Name="passwordBox"
-                         Password="Şifre"
-                         FontFamily="Helvetica" 
-                         FontWeight="Light"  
-                         FontSize="20" 
-                         HorizontalAlignment="Center" 
-                         Foreground="White" 
-                         Background="Transparent"
-                         BorderThickness="0"
-                         Width="235"
-                         HorizontalContentAlignment="Left"
-                         Opacity="0.5"
-                         Height="25"
-                         Margin="125,0,0,0"
-                         />
-                    <iconPacks:PackIconMaterial Kind="TextboxPassword"
-                                                  VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"
-                                                  Foreground="White"/>
-                </StackPanel>
-                <Border Width="250"
-                    Height="2"
-                    Background="White"/>-->
-
-                <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
-                    <Button Click="Button_Click"
+            <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
+                <Button Click="Button_Click"
                             Width="100" 
                             Height="40" 
                             Content="BAŞLA"
                             Margin="200,0,0,0"/>
-                </StackPanel>
             </StackPanel>
 
-            
-
-        </Grid>
-    </Grid>
+        </StackPanel>
+    </Border>
 </Window>
