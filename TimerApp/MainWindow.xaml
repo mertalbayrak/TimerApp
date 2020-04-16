@@ -24,14 +24,13 @@
             </Border>
             <StackPanel>
                 <Image Source="images\softtech_logo_512x512.png" Width="100" Height="100" HorizontalAlignment="Left"/>
-                <TextBlock Text="Giriş" FontWeight="Light" FontFamily="helvetica" FontSize="22" Foreground="White" HorizontalAlignment="Center"/>
+                <TextBlock Name="startText" TextWrapping="WrapWithOverflow" FontWeight="Light" FontFamily="helvetica" FontSize="22" Foreground="White" HorizontalAlignment="Center"/>
 
             </StackPanel>
 
             <StackPanel Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="usernameBox"
-                         Text="Kullanıcı Adı"  
+                    <TextBox x:Name="usernameText"
                          FontFamily="Helvetica" 
                          FontWeight="Light"  
                          FontSize="20" 
@@ -54,7 +53,7 @@
                     Height="2"
                     Background="White"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <!--<StackPanel Orientation="Horizontal" Margin="0,20,0,0">
                     <PasswordBox Name="passwordBox"
                          Password="Şifre"
                          FontFamily="Helvetica" 
@@ -77,13 +76,13 @@
                 </StackPanel>
                 <Border Width="250"
                     Height="2"
-                    Background="White"/>
+                    Background="White"/>-->
 
                 <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
                     <Button Click="Button_Click"
                             Width="100" 
                             Height="40" 
-                            Content="GİRİŞ YAP"
+                            Content="BAŞLA"
                             Margin="200,0,0,0"/>
                 </StackPanel>
             </StackPanel>

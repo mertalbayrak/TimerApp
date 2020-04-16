@@ -1,21 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Security.Principal;
-using System.Net;
-using System.DirectoryServices.AccountManagement;
+using Microsoft.Win32;
 
 namespace TimerApp
 {
@@ -24,29 +11,32 @@ namespace TimerApp
     /// </summary>
     public partial class TimerWindow : Window
     {
-        private UserPrincipal userPrincipal;
-        private PrincipalContext principalContext;
         private int second, sectorNo;
         private Dictionary<string, string> sectorList = new Dictionary<string, string>();
+        private DispatcherTimer timer;
         private DateTime dateTime;
-        private DateTime? loggedDateTime;
+        private List<string> totalWorkedHour;
         public TimerWindow()
         {
+            SystemEvents.SessionSwitch += new SessionSwitchEventHandler(SystemEventsSessionSwitch);
             InitializeComponent();
             sectorList.Clear();
+            totalWorkedHour = new List<string>();
+            totalWorkedHour.Clear();
             second = 1;
             sectorNo = 0;
-            //loggedDateTime = GetLastLoginToMachine();
             dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
-            DispatcherTimer timer = new DispatcherTimer();
+            timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += TimerTick;
             timer.Start();
         }
-
+        ~TimerWindow()
+        {
+            SystemEvents.SessionSwitch -= new SessionSwitchEventHandler(SystemEventsSessionSwitch);
+        }
         public void TimerTick(object sender, EventArgs e)
         {
-            //MessageBox.Show(loggedDateTime.ToString());
             timerText.Text = GetTimerFormat(dateTime);
             if (timerText.Text == "02:00:00")
             {
@@ -62,18 +52,20 @@ namespace TimerApp
             return dateTime.ToString("HH:mm:ss");
         }
 
-        //public static DateTime? GetLastLoginToMachine()
-        //{
-        //    string username = WindowsIdentity.GetCurrent().Name.Split(@"\")[0];
-        //    string machineName = WindowsIdentity.GetCurrent().Name.Split(@"\")[1];
-        //    PrincipalContext principalContext = new PrincipalContext(ContextType.Machine, username);
-        //    UserPrincipal userPrincipal = UserPrincipal.FindByIdentity(principalContext, machineName);
-        //    return userPrincipal.LastLogon;
-        //}
-
-
-
+        private void SystemEventsSessionSwitch(object sender, SessionSwitchEventArgs e)
+        {
+            if (e.Reason == SessionSwitchReason.SessionLock)
+            {
+                //I left my desk
+                //toplam çalışma süresi için şimdilik sırf listeye ekleme yapılıyor. Bu eklenen süreler toplanıp kullanıcıya çalışma süresi gösterilebilir.
+                totalWorkedHour.Add(timerText.Text);
+            }
+            else if (e.Reason == SessionSwitchReason.SessionUnlock)
+            {
+                //I returned to my desk
+                dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+                second = 1;
+            }
+        }
     }
-
-
 }

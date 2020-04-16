@@ -22,8 +22,8 @@
                 <TextBlock x:Name="timerText"
                    FontSize="35"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
-                </TextBlock>
+                   VerticalAlignment="Center"
+                   Foreground="White"/>
             </StackPanel>
             
         </Grid>
