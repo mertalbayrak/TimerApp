@@ -7,17 +7,26 @@
         xmlns:local="clr-namespace:TimerApp"
         mc:Ignorable="d"
         Title="Timer App" Height="450" Width="500"
-        WindowStyle="SingleBorderWindow" ResizeMode="NoResize">
-    <Grid>
-        <Grid>
-            <Border Grid.RowSpan="2">
-                <Border.Background>
-                    <LinearGradientBrush>
-                        <GradientStop Color="#475058" Offset="0.2"></GradientStop>
-                        <GradientStop Color="#65d7de" Offset="1"></GradientStop>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
+        AllowsTransparency="True" Background="Transparent" WindowStyle="None">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="300">
+
+        </WindowChrome>
+    </WindowChrome.WindowChrome>
+
+    <Border CornerRadius="360" BorderBrush="#FFDF66" BorderThickness="5" Background="#2D2D30">
+        <StackPanel WindowChrome.IsHitTestVisibleInChrome="True">
+            <Label Foreground="#FFDF66" Margin="0,15,0,0" FontSize="25" FontFamily="Stormfaze" HorizontalAlignment="Center">CORONA SAYAR</Label>
+
+            <StackPanel Background="#3F3F46" Margin="0,20,0,5" Width="280" Height="100">
+                <Label Name="timelbl" Margin="0,20,0,0" Foreground="#FFDF66" FontSize="40" FontFamily="Stormfaze" HorizontalAlignment="Center">10:30:40</Label>
+            </StackPanel>
+
+            <StackPanel Background="#3F3F46" Width="280" Height="50">
+                <Label Name="datelbl" Margin="0,8,0,0" Foreground="#ABA796" FontSize="20" FontFamily="Britannic Bold" HorizontalAlignment="Center">Sat 01.05.2018</Label>
+            </StackPanel>
+
             <StackPanel>
                 <TextBlock x:Name="timerText"
                    FontSize="35"
@@ -25,8 +34,11 @@
                    VerticalAlignment="Center"
                    Foreground="White"/>
             </StackPanel>
-            
-        </Grid>
-    </Grid>
 
+            <Button Width="60" Padding="5,5,5,5" Background="#FFDF66" Name="Quit" Click="Quit_Click" BorderThickness="0" Foreground="#333333" FontSize="10" FontFamily="Stormfaze" Margin="0,20,0,0">
+                Quit
+            </Button>
+        </StackPanel>
+    </Border>
 </Window>
+

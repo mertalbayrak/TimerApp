@@ -16,6 +16,7 @@ namespace TimerApp
         private DispatcherTimer timer;
         private DateTime dateTime;
         private List<string> totalWorkedHour;
+        private String text;
         public TimerWindow()
         {
             SystemEvents.SessionSwitch += new SessionSwitchEventHandler(SystemEventsSessionSwitch);
@@ -38,6 +39,7 @@ namespace TimerApp
         public void TimerTick(object sender, EventArgs e)
         {
             timerText.Text = GetTimerFormat(dateTime);
+            text = GetTimerFormat(dateTime);
             if (timerText.Text == "02:00:00")
             {
                 MessageBox.Show("Mola vermen gerekiyor :)");
@@ -49,7 +51,10 @@ namespace TimerApp
         private string GetTimerFormat(DateTime dateTime)
         {
             dateTime = dateTime.AddSeconds(second++);
+            timelbl.Content = dateTime.ToLongTimeString();
+            datelbl.Content = DateTime.Now.ToLongDateString();
             return dateTime.ToString("HH:mm:ss");
+            
         }
 
         private void SystemEventsSessionSwitch(object sender, SessionSwitchEventArgs e)
@@ -66,6 +71,11 @@ namespace TimerApp
                 dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
                 second = 1;
             }
+        }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(1);
         }
     }
 }
