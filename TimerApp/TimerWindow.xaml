@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:TimerApp"
         mc:Ignorable="d"
         Title="Timer App" Height="500" Width="500"
-        AllowsTransparency="True" ResizeMode="NoResize" Background="Transparent">
+        AllowsTransparency="True" ResizeMode="NoResize" WindowStyle="None" Background="Transparent">
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="300">
@@ -39,8 +39,8 @@
             </ComboBox>
 
 
-            <ComboBox Margin="10,10,0,13" Name="ComboBox1" HorizontalAlignment="Center"   
-          VerticalAlignment="Top" Width="100" Height="20">
+            <ComboBox Margin="10,10,0,0" Name="ComboBox1" HorizontalAlignment="Center"   
+                      VerticalAlignment="Top" Width="100" Height="20">
                 <ComboBoxItem Content="00:30"></ComboBoxItem>
                 <ComboBoxItem Content="01:00"></ComboBoxItem>
                 <ComboBoxItem Content="01:30"></ComboBoxItem>
