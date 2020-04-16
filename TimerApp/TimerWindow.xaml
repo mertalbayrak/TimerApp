@@ -59,7 +59,28 @@
             <Button Width="60" Padding="5,5,5,5" Background="#FFDF66" Name="Quit" Click="Quit_Click" BorderThickness="0" Foreground="#333333" FontSize="10" FontFamily="Stormfaze" Margin="0,20,0,0">
                 Quit
             </Button>
-            
+
+            <Popup Grid.Row="1"  x:Name="popup" IsOpen="False" Margin="0,0,0,0">
+
+                <Grid Background="#3F3F46" Height="1000" Width="500">
+
+                    <StackPanel>
+                        <TextBlock Text="EKLENECEK POPUP" FontSize="40" Foreground="White" Margin="15,0,0, 20"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="FOTO --> " FontSize="22" Foreground="White" Margin="15, 0, 0, 20"></TextBlock>
+                            <Image Source="images\Jumping.jpg" Height="45" VerticalAlignment="Top" Margin="0,60,0, 0"/>
+                            <Image Source="images\softtech_logo_512x512.png" Width="100" Height="100" HorizontalAlignment="Left"/>
+                            <TextBlock Text=" MESAGE " FontSize="22" Foreground="White" Margin="30, 50, 0, 20"></TextBlock>
+                        </StackPanel>
+
+                        <Button Content="ok" Width="220" Margin="5 40 20 0" HorizontalAlignment="Left" Click="OKButton_Click"/>
+                    </StackPanel>
+
+                </Grid>
+
+            </Popup>
+
+
 
         </StackPanel>
     </Border>

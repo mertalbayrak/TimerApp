@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Threading;
 using Microsoft.Win32;
 
@@ -26,7 +28,7 @@ namespace TimerApp
             totalWorkedHour.Clear();
             second = 1;
             sectorNo = 0;
-            dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+            //dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += TimerTick;
@@ -38,14 +40,45 @@ namespace TimerApp
         }
         public void TimerTick(object sender, EventArgs e)
         {
-            timerText.Text = GetTimerFormat(dateTime);
-            text = GetTimerFormat(dateTime);
-            if (timerText.Text == "02:00:00")
+
+            if (second == 30)
             {
-                MessageBox.Show("Mola vermen gerekiyor :)");
+                MessageBox.Show("Zaman Geldi :)");
+            }
+            timerText.Text = GetTimerFormat(dateTime);
+            text = timerText.Text;
+            if (timerText.Text == "00:00:10")
+            {
+                
                 sectorNo++;
                 sectorList.Add(sectorNo.ToString("00"), timerText.Text);
+                foreach (KeyValuePair<string, string> item in sectorList)
+                {
+                    Console.WriteLine("Key: {0}, Value: {1}", item.Key, item.Value);
+                    Console.ReadLine();
+                    Debug.WriteLine("Key: {0}, Value: {1}", item.Key, item.Value);
+                }
+
+                this.popup.IsOpen = true; //opens our custom msgbox
+
+           //     if (this.popup.IsOpen == true)
+             //   {
+               //     scrollviewerCustom.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled; //disables the scrollviewer
+                 //   this.ApplicationBar.Disable(); //disables the application bar
+              //  }
+
+                MessageBox.Show("Mola vermen gerekiyor :)" + sectorList);
+
+                
             }
+        }
+
+        //on click of OK button
+        private void OKButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.popup.IsOpen = false; //closes our msgbox
+        //    scrollviewerCustom.VerticalScrollBarVisibility = ScrollBarVisibility.Visible; //enables the scrollviewer
+         //  this.ApplicationBar.Enable(); //enables the application bar
         }
 
         private string GetTimerFormat(DateTime dateTime)
@@ -78,4 +111,6 @@ namespace TimerApp
             Environment.Exit(1);
         }
     }
+
+
 }
