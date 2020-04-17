@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="workout1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro.IconPacks" Version="3.7.0" />
   </ItemGroup>
 
@@ -14,6 +18,10 @@
     <Reference Include="System.DirectoryServices.AccountManagement">
       <HintPath>..\..\..\..\..\..\Windows\Microsoft.NET\Framework64\v4.0.30319\System.DirectoryServices.AccountManagement.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="workout1.png" />
   </ItemGroup>
 
 </Project>
