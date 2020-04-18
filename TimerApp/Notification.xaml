@@ -26,13 +26,8 @@
                     Content="BİTİR"
                     HorizontalAlignment="Center"/>
 
-            <StackPanel Orientation="Horizontal" Margin="0,50,0,0"/>
-            <Image x:Name="workout1" Height="229" Width="313" Source="/workout1.png" OpacityMask="#FF2E1F1F" Opacity="1.5" ScrollViewer.HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Center">
-                <Image.Effect>
-                    <DropShadowEffect/>
-                </Image.Effect>
-            </Image>
-
-        </StackPanel>
+            <StackPanel x:Name="stackPanel1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0"/>
+            
+            </StackPanel>
     </Border>
 </Window>

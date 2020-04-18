@@ -43,6 +43,7 @@
 
             <ComboBox Margin="10,10,0,0" Name="timerComboBox" HorizontalAlignment="Center"   
                       VerticalAlignment="Top" Width="100" Height="20">
+                <ComboBoxItem Content="00:01"></ComboBoxItem>
                 <ComboBoxItem Content="00:30"></ComboBoxItem>
                 <ComboBoxItem Content="01:00"></ComboBoxItem>
                 <ComboBoxItem Content="01:30"></ComboBoxItem>

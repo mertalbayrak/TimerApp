@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="workout1.png" />
+    <None Remove="0.jpg" />
+    <None Remove="1.jpg" />
+    <None Remove="1.png" />
+    <None Remove="2.jpg" />
+    <None Remove="2.png" />
+    <None Remove="3.jpg" />
+    <None Remove="3.png" />
+    <None Remove="4.jpg" />
+    <None Remove="4.png" />
+    <None Remove="5.jpg" />
+    <None Remove="5.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +31,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="workout1.png" />
+    <Resource Include="0.jpg" />
+    <Resource Include="1.jpg" />
+    <Resource Include="1.png" />
+    <Resource Include="2.jpg" />
+    <Resource Include="2.png" />
+    <Resource Include="3.jpg" />
+    <Resource Include="3.png" />
+    <Resource Include="4.jpg" />
+    <Resource Include="4.png" />
+    <Resource Include="5.jpg" />
+    <Resource Include="5.png" />
   </ItemGroup>
 
 </Project>

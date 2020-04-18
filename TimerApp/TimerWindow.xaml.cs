@@ -40,7 +40,8 @@ namespace TimerApp
         public void TimerTick(object sender, EventArgs e)
         {
             timerText.Text = GetTimerFormat(dateTime);
-            if (timerText.Text == timerComboBox.Text + ":00")
+            //if (timerText.Text == timerComboBox.Text + ":00")
+            if (timerText.Text == "00:00:05")
             {
                 notification = new Notification();
                 notification.Show();
