@@ -44,4 +44,10 @@
     <Resource Include="5.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="workoutDescription.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

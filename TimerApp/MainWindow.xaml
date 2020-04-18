@@ -51,7 +51,7 @@
                 <Button Click="Button_Click"
                             Width="100" 
                             Height="40" 
-                            Content="BAŞLA"
+                            Content="START"
                             Margin="200,0,0,0"/>
             </StackPanel>
 

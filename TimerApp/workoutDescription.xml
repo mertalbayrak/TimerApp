@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Table>
+	<Picture>
+		<Picture_id>0</Picture_id>
+		<Picture_name>Squat</Picture_name>
+		<Picture_price>Repeat for 10 times.</Picture_price>
+	</Picture>
+	<Picture>
+		<Picture_id>1</Picture_id>
+		<Picture_name>Jumping jacks</Picture_name>
+		<Picture_price>Repeat for 30x3 seconds, take a 10-second break for each 30 seconds</Picture_price>
+	</Picture>
+	<Picture>
+		<Picture_id>2</Picture_id>
+		<Picture_name>Wall Sits</Picture_name>
+		<Picture_price>Bent at 90 degrees! Hold this position for 30 seconds.</Picture_price>
+	</Picture>
+	<Picture>
+		<Picture_id>3</Picture_id>
+		<Picture_name>Push-Ups</Picture_name>
+		<Picture_price>Repeat for 10 times.</Picture_price>
+	</Picture>
+	<Picture>
+		<Picture_id>4</Picture_id>
+		<Picture_name>Ab Crunch</Picture_name>
+		<Picture_price>Repeat for 15 times.</Picture_price>
+	</Picture>
+	<Picture>
+		<Picture_id>5</Picture_id>
+		<Picture_name>Step-Up</Picture_name>
+		<Picture_price>Repeat for 10 times.</Picture_price>
+	</Picture>
+</Table>
