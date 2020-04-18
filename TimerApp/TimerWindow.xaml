@@ -41,7 +41,7 @@
             </ComboBox>
 
 
-            <ComboBox Margin="10,10,0,0" Name="ComboBox1" HorizontalAlignment="Center"   
+            <ComboBox Margin="10,10,0,0" Name="timerComboBox" HorizontalAlignment="Center"   
                       VerticalAlignment="Top" Width="100" Height="20">
                 <ComboBoxItem Content="00:30"></ComboBoxItem>
                 <ComboBoxItem Content="01:00"></ComboBoxItem>

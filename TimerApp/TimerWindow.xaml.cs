@@ -13,12 +13,12 @@ namespace TimerApp
     /// </summary>
     public partial class TimerWindow : Window
     {
-        private int second, sectorNo;
+        private int second;
         private Dictionary<string, string> sectorList = new Dictionary<string, string>();
         private DispatcherTimer timer;
         private DateTime dateTime;
         private List<string> totalWorkedHour;
-        private String text;
+        private Notification notification;
         public TimerWindow()
         {
             SystemEvents.SessionSwitch += new SessionSwitchEventHandler(SystemEventsSessionSwitch);
@@ -27,8 +27,7 @@ namespace TimerApp
             totalWorkedHour = new List<string>();
             totalWorkedHour.Clear();
             second = 1;
-            sectorNo = 0;
-            //dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+            dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += TimerTick;
@@ -40,37 +39,11 @@ namespace TimerApp
         }
         public void TimerTick(object sender, EventArgs e)
         {
-
-            if (second == 30)
-            {
-                MessageBox.Show("Zaman Geldi :)");
-            }
             timerText.Text = GetTimerFormat(dateTime);
-            text = timerText.Text;
-            if (timerText.Text == "00:00:10")
+            if (timerText.Text == timerComboBox.Text + ":00")
             {
-                
-                sectorNo++;
-                sectorList.Add(sectorNo.ToString("00"), timerText.Text);
-                foreach (KeyValuePair<string, string> item in sectorList)
-                {
-                    Console.WriteLine("Key: {0}, Value: {1}", item.Key, item.Value);
-                    Console.ReadLine();
-                    Debug.WriteLine("Key: {0}, Value: {1}", item.Key, item.Value);
-                }
-
-                this.popup.IsOpen = true; //opens our custom msgbox
-
-           //     if (this.popup.IsOpen == true)
-           //     {
-           //         scrollviewerCustom.VerticalScrollBarVisibility = ScrollBarVisibility.Disabled; //disables the scrollviewer
-          //          this.ApplicationBar.Disable(); //disables the application bar
-           //     }
-
-
-                MessageBox.Show("Mola vermen gerekiyor :)" + sectorList);
-
-                
+                notification = new Notification();
+                notification.Show();
             }
         }
 
@@ -85,10 +58,9 @@ namespace TimerApp
         private string GetTimerFormat(DateTime dateTime)
         {
             dateTime = dateTime.AddSeconds(second++);
-            timelbl.Content = dateTime.ToLongTimeString();
+            timelbl.Content = dateTime.ToString("HH:mm:ss");
             datelbl.Content = DateTime.Now.ToLongDateString();
             return dateTime.ToString("HH:mm:ss");
-            
         }
 
         private void SystemEventsSessionSwitch(object sender, SessionSwitchEventArgs e)
