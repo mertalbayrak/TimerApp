@@ -24,9 +24,7 @@ namespace TimerApp
             usernameText.Text = WindowsIdentity.GetCurrent().Name;
 
             //OnButtonClick();
-            CmdService cmdService = new CmdService("cmd.exe");
-            string output = cmdService.ExecuteCommand("python demo_2d.py");
-            Console.WriteLine(">>>>>> {0}", output);
+            
 
             //  using (CmdService cmdService = new CmdService("cmd.exe"))
             //  {
@@ -50,8 +48,10 @@ namespace TimerApp
           {
             await Task.Run(() =>
             {
-
-                ProcessStartInfo pythonInfo = new ProcessStartInfo(@"C:\Users\is96417\AppData\Local\Programs\Python\Python38\python.exe");
+                CmdService cmdService = new CmdService("cmd.exe");
+                string output = cmdService.ExecuteCommand("python demo_2d.py");
+                Console.WriteLine(">>>>>> {0}", output);
+      /*          ProcessStartInfo pythonInfo = new ProcessStartInfo(@"C:\Users\is96417\AppData\Local\Programs\Python\Python38\python.exe");
                 Process python;
                 pythonInfo.CreateNoWindow = false;
                 pythonInfo.UseShellExecute = false;
@@ -66,7 +66,7 @@ namespace TimerApp
                 //python.Close();
 
                 Console.ReadLine();
-                //Console.ReadKey();
+                //Console.ReadKey();*/
             
             });
            }

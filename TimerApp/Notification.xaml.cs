@@ -6,6 +6,7 @@ using System;
 using System.Diagnostics;
 using System.Xml;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace TimerApp
 {
@@ -48,8 +49,41 @@ namespace TimerApp
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-           
+            //this.Close();
+            OnButtonClick();
         }
+
+        private void Button_Close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+         
+        }
+        async void OnButtonClick()
+        {
+         
+             await Task.Run(() =>
+             {
+                 CmdService cmdService = new CmdService("cmd.exe");
+             string output = cmdService.ExecuteCommand("python demo_2d.py");
+             Console.WriteLine(">>>>>> {0}", output);
+                 /*          ProcessStartInfo pythonInfo = new ProcessStartInfo(@"C:\Users\is96417\AppData\Local\Programs\Python\Python38\python.exe");
+                           Process python;
+                           pythonInfo.CreateNoWindow = false;
+                           pythonInfo.UseShellExecute = false;
+                           //pythonInfo.WindowStyle = ProcessWindowStyle.Normal;
+                           pythonInfo.Arguments = string.Format("{0} {1} {2}", Path.Combine(Environment.CurrentDirectory, @"demo_2d.py"), 5, 10);
+
+                           Console.WriteLine("Python Starting");
+                           python = Process.Start(pythonInfo);
+
+
+                           python.WaitForExit();
+                           //python.Close();
+
+                           Console.ReadLine();
+                           //Console.ReadKey();*/
+
+        }); 
+        } 
     }
 }
