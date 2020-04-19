@@ -18,6 +18,7 @@
     <None Remove="4.png" />
     <None Remove="5.jpg" />
     <None Remove="5.png" />
+    <None Remove="images\4.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +43,9 @@
     <Resource Include="4.png" />
     <Resource Include="5.jpg" />
     <Resource Include="5.png" />
+    <Resource Include="images\4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

@@ -19,6 +19,7 @@ namespace TimerApp
         private DateTime dateTime;
         private List<string> totalWorkedHour;
         private Notification notification;
+        private string text;
         public TimerWindow()
         {
             SystemEvents.SessionSwitch += new SessionSwitchEventHandler(SystemEventsSessionSwitch);
@@ -32,6 +33,7 @@ namespace TimerApp
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += TimerTick;
             timer.Start();
+            
         }
         ~TimerWindow()
         {
@@ -39,9 +41,10 @@ namespace TimerApp
         }
         public void TimerTick(object sender, EventArgs e)
         {
-            timerText.Text = GetTimerFormat(dateTime);
-            //if (timerText.Text == timerComboBox.Text + ":00")
-            if (timerText.Text == "00:00:05")
+            
+            text = GetTimerFormat(dateTime);
+            if (text == timerComboBox.Text + ":00")
+            //if (timerText.Text == "00:00:05")
             {
                 notification = new Notification();
                 notification.Show();
@@ -70,7 +73,7 @@ namespace TimerApp
             {
                 //I left my desk
                 //toplam çalışma süresi için şimdilik sırf listeye ekleme yapılıyor. Bu eklenen süreler toplanıp kullanıcıya çalışma süresi gösterilebilir.
-                totalWorkedHour.Add(timerText.Text);
+                totalWorkedHour.Add(text);
             }
             else if (e.Reason == SessionSwitchReason.SessionUnlock)
             {

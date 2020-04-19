@@ -22,27 +22,22 @@
 
         <StackPanel WindowChrome.IsHitTestVisibleInChrome="True">
 
-            <Label Foreground="#FFDF66" Margin="0,60,0,0" FontSize="25" FontFamily="Stormfaze" HorizontalAlignment="Center">KALK KIPRAŞ</Label>
+            <Image Source="/4.png" HorizontalAlignment="Center" Width="75" Height="75" Margin="0,30,0,0"></Image>
+            <Label Foreground="#FFDF66" Margin="0,20,0,0" FontSize="25" FontFamily="Comic Sans MS" HorizontalAlignment="Center">SHIFT BREAKER</Label>
 
             <StackPanel Background="#3F3F46" Margin="0,10,0,5" Width="280" Height="80">
-                <Label Name="timelbl" Margin="0,10,0,0" Foreground="#FFDF66" FontSize="40" FontFamily="Stormfaze" HorizontalAlignment="Center">10:30:40</Label>
+                <Label Name="timelbl" Margin="0,10,0,0" Foreground="#FFDF66" FontSize="40" FontFamily="Comic Sans MS" HorizontalAlignment="Center">00:00:00</Label>
             </StackPanel>
 
-            <StackPanel Background="#3F3F46" Width="280" Height="30">
-                <Label Name="datelbl" Margin="0,2,0,0" Foreground="#ABA796" FontSize="20" FontFamily="Britannic Bold" HorizontalAlignment="Center">Sat 01.05.2018</Label>
+            <StackPanel Background="#3F3F46" Width="280" Height="40">
+                <Label Name="datelbl" Margin="0,0,0,0" Foreground="White" FontSize="20" FontFamily="Comic Sans MS" HorizontalAlignment="Center">Fri 23.04.1920</Label>
             </StackPanel>
 
-            <ComboBox ItemsSource="{Binding StartTimes}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding StringFormat='dd.MMMM-yyyy'}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+       
 
 
             <ComboBox Margin="10,10,0,0" Name="timerComboBox" HorizontalAlignment="Center"   
-                      VerticalAlignment="Top" Width="100" Height="20">
+                      VerticalAlignment="Top" Width="125" Height="25">
                 <ComboBoxItem Content="00:01"></ComboBoxItem>
                 <ComboBoxItem Content="00:30"></ComboBoxItem>
                 <ComboBoxItem Content="01:00"></ComboBoxItem>
@@ -50,18 +45,15 @@
                 <ComboBoxItem Content="02:00"></ComboBoxItem>
             </ComboBox>
 
-            <StackPanel>
-                <TextBlock x:Name="timerText"
-                   FontSize="35"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Foreground="White"/>
-            </StackPanel>
 
 
-            <Button Width="68" Padding="5,5,5,5" Background="#FFDF66" Name="Quit" Click="Quit_Click" BorderThickness="0" Foreground="#333333" FontSize="10" FontFamily="Stormfaze" Margin="0,20,0,0" Height="26">
-                Quit
-            </Button>
+
+            <Button Click="Quit_Click"
+                            Width="110" 
+                            Height="40" 
+                            Content="QUIT"
+                            Name="Quit"
+                            Margin="0,35,0,0" FontSize="20" FontFamily="Comic Sans MS"/>
 
             <Popup  IsOpen="False" 
                             Name="popup"                              
