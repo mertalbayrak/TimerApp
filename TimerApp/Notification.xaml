@@ -18,24 +18,24 @@
     <Border CornerRadius="360" BorderBrush="#FFDF66" BorderThickness="5" Background="#2D2D30">
         <StackPanel WindowChrome.IsHitTestVisibleInChrome="True">
 
-            <Label x:Name="workout1Text" Foreground="#FFDF66" Margin="0,40,0,0" FontSize="25" FontFamily="Stormfaze" HorizontalAlignment="Center" Content="GET and STAND UP!" FontWeight="Normal"/>
+            <Label x:Name="workout1Text" Foreground="#FFDF66" Margin="0,40,0,0" FontSize="25" FontFamily="Comic Sans MS" HorizontalAlignment="Center" Content="GET and STAND UP!" FontWeight="Normal"/>
             <StackPanel Orientation="Horizontal"/>
             <Button Click="Button_Click"
                     Width="100" 
                     Height="40" 
                     Content="DO IT"
-                    Foreground="#FFDF66"
-                    HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" FontFamily="Stormfaze"/>
+                    Foreground="White"
+                    HorizontalAlignment="Center" FontSize="14" FontWeight="Normal" FontFamily="Comic Sans MS"/>
             <Label x:Name="label1" Content="Label1" Foreground="#FFDF66" FontWeight="Normal" FontSize="20" FontFamily="Stormfaze" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,-10" Width="300"/>
 
             <StackPanel x:Name="stackPanel1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0"/>
        
         <Button Click="Button_Close"
-                    Width="100" 
+                    Width="150" 
                     Height="40" 
                     Content="DONE FOR NOW"
-                    Foreground="#FFDF66"
-                    HorizontalAlignment="Center" FontSize="14" FontWeight="Bold" FontFamily="Stormfaze"/>
+                    Foreground="White"
+                    HorizontalAlignment="Center" FontSize="14" FontWeight="Normal" FontFamily="Comic Sans MS"/>
         </StackPanel>
     </Border>
 </Window>

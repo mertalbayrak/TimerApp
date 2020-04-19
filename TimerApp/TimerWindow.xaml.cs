@@ -44,7 +44,6 @@ namespace TimerApp
             
             text = GetTimerFormat(dateTime);
             if (text == timerComboBox.Text + ":00")
-            //if (timerText.Text == "00:00:05")
             {
                 notification = new Notification();
                 notification.Show();
