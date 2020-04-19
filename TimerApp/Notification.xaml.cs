@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Xml;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace TimerApp
 {
@@ -15,13 +16,15 @@ namespace TimerApp
     /// </summary>
     public partial class Notification : Window
     {
+        private DispatcherTimer timer;
+        private DateTime dateTime;
         public Notification()
         {
             InitializeComponent();
             var rand = new Random();
             int pictureId = rand.Next(5);
             //String foto = "./images/" + pictureId + ".jpg";
-            String picture = pictureId + ".jpg";
+            String picture =  "1.jpg";
             Debug.WriteLine("deneme: " + picture);
             Image workout1 = new Image();
             BitmapImage bitmap = new BitmapImage();
@@ -61,10 +64,18 @@ namespace TimerApp
         {
             await Task.Run(() =>
             {
+                
                 CmdService cmdService = new CmdService("cmd.exe");
+                string output2 = cmdService.ExecuteCommand(@"cd C:\Users\is97623\Desktop\PythonProjects\fastpose");
                 string output = cmdService.ExecuteCommand("python demo_2d.py");
+                Console.WriteLine(">>>>>> {0}", output2);
                 Console.WriteLine(">>>>>> {0}", output);
             });
-        } 
+        }
+
+        private string GetTimerFormat(DateTime dateTime)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

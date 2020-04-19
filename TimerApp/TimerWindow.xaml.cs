@@ -20,6 +20,7 @@ namespace TimerApp
         private List<string> totalWorkedHour;
         private Notification notification;
         private string text;
+        public string text2;
         public TimerWindow()
         {
             SystemEvents.SessionSwitch += new SessionSwitchEventHandler(SystemEventsSessionSwitch);
@@ -43,14 +44,23 @@ namespace TimerApp
         {
             
             text = GetTimerFormat(dateTime);
-            if (text == timerComboBox.Text + ":00")
+            //if (text == timerComboBox.Text + ":00")
+            if (text=="00:00:05")
             {
                 notification = new Notification();
                 notification.Show();
+                
             }
+            if (text == "00:00:25")
+            {
+                MessageBox.Show("MISSION COMPLETED. CONGRULATIONS!!");
+            }
+
+
+
         }
 
-         //on click of OK button
+        //on click of OK button
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
             this.popup.IsOpen = false; //closes our msgbox
