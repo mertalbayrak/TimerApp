@@ -26,7 +26,9 @@ namespace TimerApp
             processStartInfo.UseShellExecute = false;
             processStartInfo.RedirectStandardOutput = true;
             processStartInfo.RedirectStandardInput = true;
-            processStartInfo.CreateNoWindow = false;
+            processStartInfo.CreateNoWindow = true;
+
+            
 
             cmdProcess.OutputDataReceived += CmdProcess_OutputDataReceived;
 

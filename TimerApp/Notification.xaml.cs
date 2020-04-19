@@ -37,7 +37,7 @@ namespace TimerApp
             workout1.Source = bitmap;
             workout1.Height = 200;
             workout1.Width = 300;
-            label1.Content = GetText(pictureId);
+            label1.Content = GetText(2);
             stackPanel1.Children.Add(workout1);
         }
         private String GetText(int pictureId)
@@ -48,6 +48,9 @@ namespace TimerApp
             xmldoc.Load(fs);
             xmlnode = xmldoc.GetElementsByTagName("Picture");
             xmlnode[pictureId].ChildNodes.Item(0).InnerText.Trim();
+            if (xmlnode[pictureId].ChildNodes.Count == 4) {
+                return xmlnode[pictureId].ChildNodes.Item(1).InnerText.Trim() + "\n" + xmlnode[pictureId].ChildNodes.Item(2).InnerText.Trim()+"\n"+ xmlnode[pictureId].ChildNodes.Item(3).InnerText.Trim();
+            }
             return xmlnode[pictureId].ChildNodes.Item(1).InnerText.Trim() + "\n" + xmlnode[pictureId].ChildNodes.Item(2).InnerText.Trim(); 
         }
         private void Button_Click(object sender, RoutedEventArgs e)
