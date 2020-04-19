@@ -49,6 +49,7 @@ namespace TimerApp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+           
         }
     }
 }
